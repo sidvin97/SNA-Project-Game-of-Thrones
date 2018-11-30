@@ -12,7 +12,7 @@ NUM_CLUSTERS=3
 colors = ['b','r', 'k']
 markers = ['*', 'o', '+']
 
-model = KeyedVectors.load_word2vec_format(os.path.join('..','Node2Vec','GoT_embeddings_2.emb'))
+model = KeyedVectors.load_word2vec_format(os.path.join('..','Node2Vec','GoT_embeddings_5.emb'))
 X = model[model.vocab]
 
 def getElbow():
@@ -29,6 +29,7 @@ def getElbow():
     plt.xlabel('k')
     plt.ylabel('Distortion')
     plt.title('The Elbow Method showing the optimal k')
+    plt.savefig('Elbow_5')
     plt.show()
 
 getElbow()
@@ -49,4 +50,4 @@ for i, l in enumerate(labels):
     plt.plot(pca_2d[i,0], pca_2d[i,1], color=colors[l], marker=markers[l],ls='None')
 plt.title('K-means clustering on the GoT characters (PCA-reduced data)')
 #plt.show()
-plt.savefig('Plot_2')
+plt.savefig('Plot_5')
